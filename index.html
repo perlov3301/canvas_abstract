@@ -6,124 +6,59 @@
     <title>Drawing</title>
     <link rel="icon" href="data:,">
     <style>
-        body {
+        /* body {
+            width: 98%;
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            background-color: #f0f0f0;
-            margin: 20px;
+        } */
+
+        #structure {
+            /* display: flex;
+            flex-direction: column;
+            align-items: center; */
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 0 auto;
+
+            background-color: #f8fafc;
+            border:1px sold #e2e8f0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+
+            user-select: none;
+            pointer-events: none;
         }
-        canvas {
-            border: 2px solid #3333;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            cursor: crosshair;
+        .app_diagram_wrapper {
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background-color: #f4f6f8;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        #structure1  {
             background-color: #ffffff;
-        }
-        .controls {
-            margin-bottom: 15px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
+            border: 2px solid #e1e4e8;
+            border-radius: 8px;
+            cursor: pointer;/*interactive*/
+            max-width:100%;
+            height:auto;
         }
     </style>
 </head>
 <body>
-    <h1>canvas drawing app</h1>
-    <div class="controls">
-      <button id="clearBtn">clear&redraw</button>
-    </div>
-    <canvas id="myCanvas" width="600" height="600"></canvas>
-    <script>
-      //setup
-      const canvas = document.getElementById('myCanvas');
-      const ctx = canvas.getContext('2d');
-      let isDrawing = false;
-
-      //function to draw static demo shapes
-      function drawStaticShapes() {
-        // filled blue Rectangle
-        ctx.fillStyle = 'blue';
-        ctx.fillRect(50, 50, 150, 100);
-        //outlined green circle
-        ctx.beginPath();
-        ctx.arc(450,100, 50, 0, Math.PI*2);
-        ctx.strokeStyle = 'green';
-        ctx.lineWidth = 5;
-        ctx.stroke();
-        //custom yellow triangle path
-        ctx.beginPath();
-        ctx.moveTo(300, 200 );//top
-        ctx.lineTo(200, 320 );//bottom left
-        ctx.lineTo(400, 320); // bottom right
-        ctx.closePath(); //link to top;
-        ctx.fillStyle = '#808000';
-        ctx.fill();
-        // outlined line
-        ctx.beginPath();
-        ctx.moveTo(100, 420);
-        ctx.lineTo(500, 420);
-        ctx.strokeStyle='black';
-        ctx.lineWidth = 3;
-        ctx.stroke();
-        // font
-        ctx.font = '17px Arial';
-        //solid text
-        ctx.fillStyle = 'purple';
-        ctx.fillText('Hello World', 80, 400  );
-        // outlined text
-        ctx.strokeStyle = 'purple';
-        ctx.lineWidth = 1;
-        ctx.strokeText('Hello World', 170, 400);
-    }
-        //run static layout on load
-        drawStaticShapes();
- // interactive mouse drawing logic
- function startDrawing(e) {
-            isDrawing = true;
-            ctx.beginPath();
-            draw(e); // Handles single clicks
-        }
-
-        function stopDrawing() {
-            isDrawing = false;
-            ctx.beginPath(); // Resets path history so lines don't connect weirdly
-        }
-
-        function draw(e) {
-            if (!isDrawing) return;
-
-            // Get correct mouse coordinates relative to the canvas boundary
-            const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            // Configure properties for the freehand sketch pen
-
-            ctx.lineWidth = 4;
-            ctx.lineCap = 'round';
-            ctx.strokeStyle = '#e74c3c'; // Red line
-
-            // Create line segment
-            ctx.lineTo(x, y);
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.moveTo(x, y);
-        }
-
-        // 4. Event Listeners for Interaction
-        canvas.addEventListener('mousedown', startDrawing);
-        canvas.addEventListener('mousemove', draw);
-        canvas.addEventListener('mouseup', stopDrawing);
-        canvas.addEventListener('mouseleave', stopDrawing);
-        document.getElementById("clearBtn").addEventListener('click', () => {
-            console.log("clear button clicked");
-            ctx.clearRect(0,0,canvas.width, canvas.height);
-            drawStaticShapes();
-        } )
-      
-    </script>
+    <h5>static canvas </h5>
+   <canvas id="structure" width="800" height="600">
+     Your transformer
+   </canvas>
+   <div class="app_diagram_wrapper">
+    <canvas id="structure1" width="800" height="600"></canvas>
+   </div>
+    <script></script>
+    <script type="module" src="mycanvas.js"></script>
 </body>
 </html>
