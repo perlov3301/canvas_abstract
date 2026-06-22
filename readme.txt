@@ -30,3 +30,7 @@ drawRotatedText(ctx, "Vertical Title", 50, 100, 90);
 // ctx.strokeStyle = 'purple';
 // ctx.lineWidth = 1;
 // ctx.strokeText('Hello World', 170, 400);
+αA βB γΓ δΔ εE θΘ  λΛ μM πΠ σΣ φΦ ωΩ ∞ ≠ ≈ 
+    Α α, Β β, Γ γ, Δ δ, Ε ε, Ζ ζ, Η η, Θ θ, Ι ι, 
+    Κ κ, Λ λ, Μ μ, Ν ν, Ξ ξ, Ο ο, Π π, Ρ ρ, Σ σ ς, 
+    Τ τ, Υ υ, Φ φ, Χ χ, Ψ ψ, Ω ω

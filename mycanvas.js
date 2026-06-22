@@ -89,7 +89,7 @@ document.addEventListener("readystatechange",()=> {
     fline(ctx1, 710, 420, 710, 450);
     z_vert(ctx1, 710, 450);
     fline(ctx1, 710, 480, 710, 515);
-    z_vert(ctx1, 710, 515);
+    z_vert(ctx1, 710, 516);
     fline(ctx1, 710, 545, 710, 575);
     base(710, 575);
     function fline(vctx,xb, yb, xe, ye){
@@ -141,10 +141,18 @@ document.addEventListener("readystatechange",()=> {
        "12px" // font
        );
     rotatedText(ctx1, // context
-    "generator R", // text
-    40, // x local origin
-    510, //y local origin
-    -90,  // degrees
-    "12px" // font
+        "R_load", // text
+        740, // x local origin
+        464, //y local origin
+        -90,  // degrees
+        "12px" // font
     );
+    rotatedText(ctx1, // context
+        "j*X_load", // text
+        740, // x local origin
+        533, //y local origin
+        -90,  // degrees
+        "12px" // font
+    );
+
 });
